@@ -5,6 +5,7 @@
  * Local symbols included but should not be uncommented when types are discovered
  */
 
+#include <dolphin.h>
 #include <unk.h>
 
 // ======================= xlCoreGCN.c ================================================
