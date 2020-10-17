@@ -1,18 +1,18 @@
 /*
 Code sections:
     .init   80003100 - 80005598 : 002498
-    .text   800055A0 - 800D2F8C : 0CD9EC
+    .text   800055A0 - 800DF144 : 0D9BA4
 Data sections:
-    .ctors  800D2FA0 - 800D2FA8 : 000008
-    .dtors  800D2FC0 - 800D2FC8 : 000008
-    .rodata 800D2FE0 - 800D3710 : 000730
-    .data   800D3720 - 800F3ED8 : 0207B8
-    .sdata  80134CE0 - 80135579 : 000899
-    .sdata2 80135D00 - 80136420 : 000720
+    .ctors  800DF160 - 800DF168 : 000008
+    .dtors  800DF180 - 800DF188 : 000008
+    .rodata 800DF1A0 - 800DF880 : 0006E0
+    .data   800DF880 - 801021B8 : 022938
+    .sdata  801449E0 - 80145839 : 000E59
+    .sdata2 80145FE0 - 801467B0 : 0007D0
 BSS section:
-    .bss    800F3EE0 - 80134CD8 : 040DF8
-    .sbss   80135580 - 80135CFD : 00077D
-    .sbss2  80136420 - 80136420 : 000000
+    .bss    801021C0 - 801449D8 : 042818
+    .sbss   80145840 - 80145FDD : 00079D
+    .sbss2  80146000 - 80146000 : 000000
 Entry Point: 0x80003154
 */
 # glabel
@@ -94,6 +94,6 @@ Entry Point: 0x80003154
 .set qr6, 6
 .set qr7, 7
 # Small Data Area (read/write) Base
-.set _SDA_BASE_, 0x8013CCE0
+.set _SDA_BASE_, 0x8014C9E0
 # Small Data Area (read only) Base
-.set _SDA2_BASE_, 0x8013DD00
+.set _SDA2_BASE_, 0x8014DFE0
