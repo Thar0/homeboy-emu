@@ -6,6 +6,6 @@
 .balign 4
 
 glabel __stdio_atexit
-/* 0D5924 800DAEC4 4E800020 */  blr		
+/* 0D5924 800DAEC4 4E800020 */  blr     
 
 

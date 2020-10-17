@@ -6,30 +6,30 @@
 .balign 4
 
 glabel toupper
-/* 0D5194 800DA734 2C03FFFF */  cmpwi	r3, -1
-/* 0D5198 800DA738 4082000C */  bne		lbl_800DA744
-/* 0D519C 800DA73C 3860FFFF */  li		r3, -1
-/* 0D51A0 800DA740 4E800020 */  blr		
+/* 0D5194 800DA734 2C03FFFF */  cmpwi   r3, -1
+/* 0D5198 800DA738 4082000C */  bne     lbl_800DA744
+/* 0D519C 800DA73C 3860FFFF */  li      r3, -1
+/* 0D51A0 800DA740 4E800020 */  blr     
 lbl_800DA744:
-/* 0D51A4 800DA744 3C80800E */  lis		r4, __upper_map@ha
-/* 0D51A8 800DA748 5463063E */  clrlwi	r3, r3, 0x18
-/* 0D51AC 800DA74C 3804F720 */  addi	r0, r4, __upper_map@l
-/* 0D51B0 800DA750 7C601A14 */  add		r3, r0, r3
-/* 0D51B4 800DA754 88630000 */  lbz		r3, 0(r3)
-/* 0D51B8 800DA758 4E800020 */  blr		
+/* 0D51A4 800DA744 3C80800E */  lis     r4, __upper_map@ha
+/* 0D51A8 800DA748 5463063E */  clrlwi  r3, r3, 0x18
+/* 0D51AC 800DA74C 3804F720 */  addi    r0, r4, __upper_map@l
+/* 0D51B0 800DA750 7C601A14 */  add     r3, r0, r3
+/* 0D51B4 800DA754 88630000 */  lbz     r3, 0(r3)
+/* 0D51B8 800DA758 4E800020 */  blr     
 
 glabel tolower
-/* 0D51BC 800DA75C 2C03FFFF */  cmpwi	r3, -1
-/* 0D51C0 800DA760 4082000C */  bne		lbl_800DA76C
-/* 0D51C4 800DA764 3860FFFF */  li		r3, -1
-/* 0D51C8 800DA768 4E800020 */  blr		
+/* 0D51BC 800DA75C 2C03FFFF */  cmpwi   r3, -1
+/* 0D51C0 800DA760 4082000C */  bne     lbl_800DA76C
+/* 0D51C4 800DA764 3860FFFF */  li      r3, -1
+/* 0D51C8 800DA768 4E800020 */  blr     
 lbl_800DA76C:
-/* 0D51CC 800DA76C 3C80800E */  lis		r4, __lower_map@ha
-/* 0D51D0 800DA770 5463063E */  clrlwi	r3, r3, 0x18
-/* 0D51D4 800DA774 3804F620 */  addi	r0, r4, __lower_map@l
-/* 0D51D8 800DA778 7C601A14 */  add		r3, r0, r3
-/* 0D51DC 800DA77C 88630000 */  lbz		r3, 0(r3)
-/* 0D51E0 800DA780 4E800020 */  blr		
+/* 0D51CC 800DA76C 3C80800E */  lis     r4, __lower_map@ha
+/* 0D51D0 800DA770 5463063E */  clrlwi  r3, r3, 0x18
+/* 0D51D4 800DA774 3804F620 */  addi    r0, r4, __lower_map@l
+/* 0D51D8 800DA778 7C601A14 */  add     r3, r0, r3
+/* 0D51DC 800DA77C 88630000 */  lbz     r3, 0(r3)
+/* 0D51E0 800DA780 4E800020 */  blr     
 
 
 .section .rodata, "a"
