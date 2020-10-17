@@ -5,7 +5,7 @@
 
 .balign 8
 
-/* 000F0BB8 800F3B38 00D8 */
+/* 000FEE98 80101E18 00D8 */
 glabel __files
     .long 0x00000000, 0x08800000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, __files + 0xC, 0x00000001
     .long __files + 0xC, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, __read_console, __write_console

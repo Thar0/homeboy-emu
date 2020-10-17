@@ -6,27 +6,27 @@
 .balign 4
 
 glabel OSGetArenaHi
-/* 097EE8 8009D488 806D8B28 */  lwz     r3, __OSArenaHi-_SDA_BASE_(r13)
-/* 097EEC 8009D48C 4E800020 */  blr     
+/* 0A395C 800A8EFC 806D9110 */  lwz		r3, __OSArenaHi-_SDA_BASE_(r13)
+/* 0A3960 800A8F00 4E800020 */  blr		
 
 glabel OSGetArenaLo
-/* 097EF0 8009D490 806D8748 */  lwz     r3, __OSArenaLo-_SDA_BASE_(r13)
-/* 097EF4 8009D494 4E800020 */  blr     
+/* 0A3964 800A8F04 806D8D08 */  lwz		r3, __OSArenaLo-_SDA_BASE_(r13)
+/* 0A3968 800A8F08 4E800020 */  blr		
 
 glabel OSSetArenaHi
-/* 097EF8 8009D498 906D8B28 */  stw     r3, __OSArenaHi-_SDA_BASE_(r13)
-/* 097EFC 8009D49C 4E800020 */  blr     
+/* 0A396C 800A8F0C 906D9110 */  stw		r3, __OSArenaHi-_SDA_BASE_(r13)
+/* 0A3970 800A8F10 4E800020 */  blr		
 
 glabel OSSetArenaLo
-/* 097F00 8009D4A0 906D8748 */  stw     r3, __OSArenaLo-_SDA_BASE_(r13)
-/* 097F04 8009D4A4 4E800020 */  blr     
+/* 0A3974 800A8F14 906D8D08 */  stw		r3, __OSArenaLo-_SDA_BASE_(r13)
+/* 0A3978 800A8F18 4E800020 */  blr		
 
 
 .section .sdata, "wa"
 
 .balign 8
 
-/* 000F16A8 80135428 0004 */
+/* 000FFF48 801456E8 0004 */
 __OSArenaLo:
     .long 0xFFFFFFFF
 
@@ -35,7 +35,7 @@ __OSArenaLo:
 
 .balign 8
 
-/* 000F1A88 80135808 0004 */
+/* 00100350 80145AF0 0004 */
 __OSArenaHi:
     .skip 4
 

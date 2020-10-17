@@ -6,88 +6,88 @@
 .balign 4
 
 glabel exit
-/* 0C8A44 800CDFE4 7C0802A6 */  mflr    r0
-/* 0C8A48 800CDFE8 90010004 */  stw     r0, 4(r1)
-/* 0C8A4C 800CDFEC 9421FFE8 */  stwu    r1, -0x18(r1)
-/* 0C8A50 800CDFF0 93E10014 */  stw     r31, 0x14(r1)
-/* 0C8A54 800CDFF4 800D8FE0 */  lwz     r0, __aborting-_SDA_BASE_(r13)
-/* 0C8A58 800CDFF8 2C000000 */  cmpwi   r0, 0
-/* 0C8A5C 800CDFFC 40820084 */  bne     lbl_800CE080
-/* 0C8A60 800CE000 3C608013 */  lis     r3, atexit_funcs@ha
-/* 0C8A64 800CE004 3BE34AD8 */  addi    r31, r3, atexit_funcs@l
-/* 0C8A68 800CE008 48000024 */  b       lbl_800CE02C
-lbl_800CE00C:
-/* 0C8A6C 800CE00C 806D8FE4 */  lwz     r3, atexit_curr_func-_SDA_BASE_(r13)
-/* 0C8A70 800CE010 3863FFFF */  addi    r3, r3, -1
-/* 0C8A74 800CE014 5460103A */  slwi    r0, r3, 2
-/* 0C8A78 800CE018 906D8FE4 */  stw     r3, atexit_curr_func-_SDA_BASE_(r13)
-/* 0C8A7C 800CE01C 7C7F0214 */  add     r3, r31, r0
-/* 0C8A80 800CE020 81830000 */  lwz     r12, 0(r3)
-/* 0C8A84 800CE024 7D8803A6 */  mtlr    r12
-/* 0C8A88 800CE028 4E800021 */  blrl    
-lbl_800CE02C:
-/* 0C8A8C 800CE02C 800D8FE4 */  lwz     r0, atexit_curr_func-_SDA_BASE_(r13)
-/* 0C8A90 800CE030 2C000000 */  cmpwi   r0, 0
-/* 0C8A94 800CE034 4181FFD8 */  bgt     lbl_800CE00C
-/* 0C8A98 800CE038 4BFFF855 */  bl      __destroy_global_chain
-/* 0C8A9C 800CE03C 3C60800D */  lis     r3, _dtors@ha
-/* 0C8AA0 800CE040 38032FC0 */  addi    r0, r3, _dtors@l
-/* 0C8AA4 800CE044 7C1F0378 */  mr      r31, r0
-/* 0C8AA8 800CE048 48000010 */  b       lbl_800CE058
-lbl_800CE04C:
-/* 0C8AAC 800CE04C 7D8803A6 */  mtlr    r12
-/* 0C8AB0 800CE050 4E800021 */  blrl    
-/* 0C8AB4 800CE054 3BFF0004 */  addi    r31, r31, 4
-lbl_800CE058:
-/* 0C8AB8 800CE058 819F0000 */  lwz     r12, 0(r31)
-/* 0C8ABC 800CE05C 280C0000 */  cmplwi  r12, 0
-/* 0C8AC0 800CE060 4082FFEC */  bne     lbl_800CE04C
-/* 0C8AC4 800CE064 818D8FEC */  lwz     r12, __stdio_exit-_SDA_BASE_(r13)
-/* 0C8AC8 800CE068 280C0000 */  cmplwi  r12, 0
-/* 0C8ACC 800CE06C 41820014 */  beq     lbl_800CE080
-/* 0C8AD0 800CE070 7D8803A6 */  mtlr    r12
-/* 0C8AD4 800CE074 4E800021 */  blrl    
-/* 0C8AD8 800CE078 38000000 */  li      r0, 0
-/* 0C8ADC 800CE07C 900D8FEC */  stw     r0, __stdio_exit-_SDA_BASE_(r13)
-lbl_800CE080:
-/* 0C8AE0 800CE080 3C608013 */  lis     r3, __atexit_funcs@ha
-/* 0C8AE4 800CE084 3BE34BD8 */  addi    r31, r3, __atexit_funcs@l
-/* 0C8AE8 800CE088 48000024 */  b       lbl_800CE0AC
-lbl_800CE08C:
-/* 0C8AEC 800CE08C 806D8FE8 */  lwz     r3, __atexit_curr_func-_SDA_BASE_(r13)
-/* 0C8AF0 800CE090 3863FFFF */  addi    r3, r3, -1
-/* 0C8AF4 800CE094 5460103A */  slwi    r0, r3, 2
-/* 0C8AF8 800CE098 906D8FE8 */  stw     r3, __atexit_curr_func-_SDA_BASE_(r13)
-/* 0C8AFC 800CE09C 7C7F0214 */  add     r3, r31, r0
-/* 0C8B00 800CE0A0 81830000 */  lwz     r12, 0(r3)
-/* 0C8B04 800CE0A4 7D8803A6 */  mtlr    r12
-/* 0C8B08 800CE0A8 4E800021 */  blrl    
-lbl_800CE0AC:
-/* 0C8B0C 800CE0AC 800D8FE8 */  lwz     r0, __atexit_curr_func-_SDA_BASE_(r13)
-/* 0C8B10 800CE0B0 2C000000 */  cmpwi   r0, 0
-/* 0C8B14 800CE0B4 4181FFD8 */  bgt     lbl_800CE08C
-/* 0C8B18 800CE0B8 480004ED */  bl      __kill_critical_regions
-/* 0C8B1C 800CE0BC 818D8FF0 */  lwz     r12, __console_exit-_SDA_BASE_(r13)
-/* 0C8B20 800CE0C0 280C0000 */  cmplwi  r12, 0
-/* 0C8B24 800CE0C4 41820014 */  beq     lbl_800CE0D8
-/* 0C8B28 800CE0C8 7D8803A6 */  mtlr    r12
-/* 0C8B2C 800CE0CC 4E800021 */  blrl    
-/* 0C8B30 800CE0D0 38000000 */  li      r0, 0
-/* 0C8B34 800CE0D4 900D8FF0 */  stw     r0, __console_exit-_SDA_BASE_(r13)
-lbl_800CE0D8:
-/* 0C8B38 800CE0D8 4BFD466D */  bl      _ExitProcess
-/* 0C8B3C 800CE0DC 8001001C */  lwz     r0, 0x1c(r1)
-/* 0C8B40 800CE0E0 83E10014 */  lwz     r31, 0x14(r1)
-/* 0C8B44 800CE0E4 38210018 */  addi    r1, r1, 0x18
-/* 0C8B48 800CE0E8 7C0803A6 */  mtlr    r0
-/* 0C8B4C 800CE0EC 4E800020 */  blr     
+/* 0D4BD0 800DA170 7C0802A6 */  mflr	r0
+/* 0D4BD4 800DA174 90010004 */  stw		r0, 4(r1)
+/* 0D4BD8 800DA178 9421FFE8 */  stwu	r1, -0x18(r1)
+/* 0D4BDC 800DA17C 93E10014 */  stw		r31, 0x14(r1)
+/* 0D4BE0 800DA180 800D95C0 */  lwz		r0, __aborting-_SDA_BASE_(r13)
+/* 0D4BE4 800DA184 2C000000 */  cmpwi	r0, 0
+/* 0D4BE8 800DA188 40820084 */  bne		lbl_800DA20C
+/* 0D4BEC 800DA18C 3C608014 */  lis		r3, atexit_funcs@ha
+/* 0D4BF0 800DA190 3BE347D8 */  addi	r31, r3, atexit_funcs@l
+/* 0D4BF4 800DA194 48000024 */  b		lbl_800DA1B8
+lbl_800DA198:
+/* 0D4BF8 800DA198 806D95C4 */  lwz		r3, atexit_curr_func-_SDA_BASE_(r13)
+/* 0D4BFC 800DA19C 3863FFFF */  addi	r3, r3, -1
+/* 0D4C00 800DA1A0 5460103A */  slwi	r0, r3, 2
+/* 0D4C04 800DA1A4 906D95C4 */  stw		r3, atexit_curr_func-_SDA_BASE_(r13)
+/* 0D4C08 800DA1A8 7C7F0214 */  add		r3, r31, r0
+/* 0D4C0C 800DA1AC 81830000 */  lwz		r12, 0(r3)
+/* 0D4C10 800DA1B0 7D8803A6 */  mtlr	r12
+/* 0D4C14 800DA1B4 4E800021 */  blrl	
+lbl_800DA1B8:
+/* 0D4C18 800DA1B8 800D95C4 */  lwz		r0, atexit_curr_func-_SDA_BASE_(r13)
+/* 0D4C1C 800DA1BC 2C000000 */  cmpwi	r0, 0
+/* 0D4C20 800DA1C0 4181FFD8 */  bgt		lbl_800DA198
+/* 0D4C24 800DA1C4 4BFFF855 */  bl		__destroy_global_chain
+/* 0D4C28 800DA1C8 3C60800E */  lis		r3, _dtors@ha
+/* 0D4C2C 800DA1CC 3803F180 */  addi	r0, r3, _dtors@l
+/* 0D4C30 800DA1D0 7C1F0378 */  mr		r31, r0
+/* 0D4C34 800DA1D4 48000010 */  b		lbl_800DA1E4
+lbl_800DA1D8:
+/* 0D4C38 800DA1D8 7D8803A6 */  mtlr	r12
+/* 0D4C3C 800DA1DC 4E800021 */  blrl	
+/* 0D4C40 800DA1E0 3BFF0004 */  addi	r31, r31, 4
+lbl_800DA1E4:
+/* 0D4C44 800DA1E4 819F0000 */  lwz		r12, 0(r31)
+/* 0D4C48 800DA1E8 280C0000 */  cmplwi	r12, 0
+/* 0D4C4C 800DA1EC 4082FFEC */  bne		lbl_800DA1D8
+/* 0D4C50 800DA1F0 818D95CC */  lwz		r12, __stdio_exit-_SDA_BASE_(r13)
+/* 0D4C54 800DA1F4 280C0000 */  cmplwi	r12, 0
+/* 0D4C58 800DA1F8 41820014 */  beq		lbl_800DA20C
+/* 0D4C5C 800DA1FC 7D8803A6 */  mtlr	r12
+/* 0D4C60 800DA200 4E800021 */  blrl	
+/* 0D4C64 800DA204 38000000 */  li		r0, 0
+/* 0D4C68 800DA208 900D95CC */  stw		r0, __stdio_exit-_SDA_BASE_(r13)
+lbl_800DA20C:
+/* 0D4C6C 800DA20C 3C608014 */  lis		r3, __atexit_funcs@ha
+/* 0D4C70 800DA210 3BE348D8 */  addi	r31, r3, __atexit_funcs@l
+/* 0D4C74 800DA214 48000024 */  b		lbl_800DA238
+lbl_800DA218:
+/* 0D4C78 800DA218 806D95C8 */  lwz		r3, __atexit_curr_func-_SDA_BASE_(r13)
+/* 0D4C7C 800DA21C 3863FFFF */  addi	r3, r3, -1
+/* 0D4C80 800DA220 5460103A */  slwi	r0, r3, 2
+/* 0D4C84 800DA224 906D95C8 */  stw		r3, __atexit_curr_func-_SDA_BASE_(r13)
+/* 0D4C88 800DA228 7C7F0214 */  add		r3, r31, r0
+/* 0D4C8C 800DA22C 81830000 */  lwz		r12, 0(r3)
+/* 0D4C90 800DA230 7D8803A6 */  mtlr	r12
+/* 0D4C94 800DA234 4E800021 */  blrl	
+lbl_800DA238:
+/* 0D4C98 800DA238 800D95C8 */  lwz		r0, __atexit_curr_func-_SDA_BASE_(r13)
+/* 0D4C9C 800DA23C 2C000000 */  cmpwi	r0, 0
+/* 0D4CA0 800DA240 4181FFD8 */  bgt		lbl_800DA218
+/* 0D4CA4 800DA244 480004ED */  bl		__kill_critical_regions
+/* 0D4CA8 800DA248 818D95D0 */  lwz		r12, __console_exit-_SDA_BASE_(r13)
+/* 0D4CAC 800DA24C 280C0000 */  cmplwi	r12, 0
+/* 0D4CB0 800DA250 41820014 */  beq		lbl_800DA264
+/* 0D4CB4 800DA254 7D8803A6 */  mtlr	r12
+/* 0D4CB8 800DA258 4E800021 */  blrl	
+/* 0D4CBC 800DA25C 38000000 */  li		r0, 0
+/* 0D4CC0 800DA260 900D95D0 */  stw		r0, __console_exit-_SDA_BASE_(r13)
+lbl_800DA264:
+/* 0D4CC4 800DA264 4BFD3F55 */  bl		_ExitProcess
+/* 0D4CC8 800DA268 8001001C */  lwz		r0, 0x1c(r1)
+/* 0D4CCC 800DA26C 83E10014 */  lwz		r31, 0x14(r1)
+/* 0D4CD0 800DA270 38210018 */  addi	r1, r1, 0x18
+/* 0D4CD4 800DA274 7C0803A6 */  mtlr	r0
+/* 0D4CD8 800DA278 4E800020 */  blr		
 
 
 .section .dtors, "a"
 
 .balign 4
 
-/* 000D0040 800D2FC0 0004 */
+/* 000DC200 800DF180 0004 */
 glabel _dtors
     .long __destroy_global_chain
 
@@ -96,13 +96,13 @@ glabel _dtors
 
 .balign 8
 
-/* 00131B58 80134AD8 0100 */
+/* 00141858 801447D8 0100 */
 atexit_funcs:
     .skip 256
 
 .balign 4
 
-/* 00131C58 80134BD8 0100 */
+/* 00141958 801448D8 0100 */
 __atexit_funcs:
     .skip 256
 
@@ -111,31 +111,31 @@ __atexit_funcs:
 
 .balign 8
 
-/* 000F1F40 80135CC0 0004 */
+/* 00100800 80145FA0 0004 */
 glabel __aborting
     .skip 4
 
 .balign 4
 
-/* 000F1F44 80135CC4 0004 */
+/* 00100804 80145FA4 0004 */
 atexit_curr_func:
     .skip 4
 
 .balign 4
 
-/* 000F1F48 80135CC8 0004 */
+/* 00100808 80145FA8 0004 */
 __atexit_curr_func:
     .skip 4
 
 .balign 4
 
-/* 000F1F4C 80135CCC 0004 */
+/* 0010080C 80145FAC 0004 */
 glabel __stdio_exit
     .skip 4
 
 .balign 4
 
-/* 000F1F50 80135CD0 0004 */
+/* 00100810 80145FB0 0004 */
 glabel __console_exit
     .skip 4
 

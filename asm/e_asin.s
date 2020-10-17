@@ -6,7 +6,7 @@
 .balign 4
 
 glabel fabs__Fd
-/* 0CBAE8 800D1088 FC200A10 */  fabs    f1, f1
-/* 0CBAEC 800D108C 4E800020 */  blr     
+/* 0D7CA0 800DD240 FC200A10 */  fabs	f1, f1
+/* 0D7CA4 800DD244 4E800020 */  blr		
 
 

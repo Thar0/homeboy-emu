@@ -4,8 +4,10 @@ O_FILES :=                                  \
     $(BUILD_DIR)/asm/xlCoreGCN.o            \
     $(BUILD_DIR)/asm/xlPostGCN.o            \
     $(BUILD_DIR)/asm/xlFileGCN.o            \
+    $(BUILD_DIR)/asm/xlText.o               \
     $(BUILD_DIR)/asm/xlList.o               \
     $(BUILD_DIR)/asm/xlHeap.o               \
+    $(BUILD_DIR)/asm/xlFile.o               \
     $(BUILD_DIR)/asm/xlObject.o             \
     $(BUILD_DIR)/asm/simGCN.o               \
     $(BUILD_DIR)/asm/movie.o                \
@@ -37,6 +39,8 @@ O_FILES :=                                  \
     $(BUILD_DIR)/asm/peripheral.o           \
     $(BUILD_DIR)/asm/_frameGCNcc.o          \
     $(BUILD_DIR)/asm/_buildtev.o            \
+    $(BUILD_DIR)/asm/snddvdtrk.o            \
+    $(BUILD_DIR)/asm/sndspecial.o           \
     $(BUILD_DIR)/asm/PPCArch.o              \
     $(BUILD_DIR)/asm/OS.o                   \
     $(BUILD_DIR)/asm/OSAlarm.o              \
